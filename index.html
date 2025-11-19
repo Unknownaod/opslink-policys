@@ -6,115 +6,213 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <style>
+/* Global Theme */
 body {
     margin: 0;
-    padding: 40px;
+    padding: 0;
     background: #06090f;
     color: #d8e0ea;
     font-family: "Segoe UI", sans-serif;
     line-height: 1.7;
 }
 
+/* Header */
+.header {
+    background: #0a0f18;
+    padding: 20px 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #4e8cff;
+}
+
+.header-nav a {
+    color: #d8e0ea;
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.header-nav a:hover {
+    color: #4e8cff;
+}
+
+/* Container */
 .container {
-    max-width: 900px;
-    margin: auto;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 40px;
 }
 
 h1 {
     color: #4e8cff;
-    font-size: 34px;
-    margin-bottom: 20px;
+    font-size: 38px;
+    margin-bottom: 10px;
 }
 
-h2 {
-    color: #4e8cff;
-    margin-top: 40px;
-}
-
-a {
-    color: #4e8cff;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-.policy-list {
-    margin-top: 25px;
-    padding-left: 20px;
-}
-
-.policy-item {
-    margin-bottom: 14px;
+.subtitle {
+    opacity: 0.85;
     font-size: 17px;
+    margin-bottom: 40px;
+}
+
+/* Policy Grid */
+.policy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 25px;
+}
+
+.policy-card {
+    background: #0b111a;
+    border: 1px solid #1b2532;
+    padding: 25px;
+    border-radius: 12px;
+    transition: 0.2s;
+}
+
+.policy-card:hover {
+    border-color: #4e8cff;
+}
+
+.policy-card-title {
+    font-size: 20px;
+    color: #4e8cff;
+    margin-bottom: 8px;
+}
+
+.policy-card a {
+    text-decoration: none;
+    color: #4e8cff;
+}
+
+.policy-card-desc {
+    font-size: 15px;
+    opacity: 0.85;
 }
 
 hr {
     border: 0;
     border-bottom: 1px solid rgba(255,255,255,0.12);
-    margin: 30px 0;
+    margin: 40px 0;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-bottom: 30px;
+    opacity: 0.8;
+    font-size: 15px;
 }
 </style>
 </head>
 
 <body>
+
+<!-- HEADER -->
+<div class="header">
+    <div class="header-title">OpsLinkCAD Legal Center</div>
+    <div class="header-nav">
+        <a href="/terms">Terms</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/billing">Billing</a>
+        <a href="/aup">AUP</a>
+        <a href="/security">Security</a>
+    </div>
+</div>
+
+<!-- MAIN CONTENT -->
 <div class="container">
 
 <h1>OpsLinkCAD Legal Center</h1>
 
-<p>
-Welcome to the official legal hub for <strong>OpsLinkCAD</strong>, a product owned and operated by
+<p class="subtitle">
+Welcome to the legal hub for <strong>OpsLinkCAD</strong>, a product under
 <strong>OpsLink Systems</strong>.  
-Here you will find all legally binding documents governing the use of our platform, technologies, and services.
-Please review each policy carefully.
+This center provides access to all legally binding documents and compliance guidelines.
 </p>
 
-<hr>
+<!-- POLICY GRID -->
+<div class="policy-grid">
 
-<h2>Official Policies</h2>
-
-<div class="policy-list">
-
-    <div class="policy-item">
-        <a href="/terms">Terms of Service</a><br>
-        The master agreement governing access and use of OpsLinkCAD.
+    <div class="policy-card">
+        <div class="policy-card-title">
+            <a href="/terms">Terms of Service</a>
+        </div>
+        <div class="policy-card-desc">
+            The primary agreement governing access and use of OpsLinkCAD.
+        </div>
     </div>
 
-    <div class="policy-item">
-        <a href="/billing">Billing & Subscription Policy</a><br>
-        Details regarding payments, renewals, taxes, cancellations, and refunds.
+    <div class="policy-card">
+        <div class="policy-card-title">
+            <a href="/billing">Billing & Subscription Policy</a>
+        </div>
+        <div class="policy-card-desc">
+            Details about payments, renewals, taxes, charges, and cancellations.
+        </div>
     </div>
 
-    <div class="policy-item">
-        <a href="/privacy">Privacy Policy</a><br>
-        How we collect, use, protect, and manage user data.
+    <div class="policy-card">
+        <div class="policy-card-title">
+            <a href="/privacy">Privacy Policy</a>
+        </div>
+        <div class="policy-card-desc">
+            How OpsLinkCAD collects, manages, and protects your personal data.
+        </div>
     </div>
 
-    <div class="policy-item">
-        <a href="/aup">Acceptable Use Policy</a><br>
-        Rules governing user conduct, misuse restrictions, and compliance obligations.
+    <div class="policy-card">
+        <div class="policy-card-title">
+            <a href="/aup">Acceptable Use Policy</a>
+        </div>
+        <div class="policy-card-desc">
+            Rules covering user conduct, restrictions, and misuse prevention.
+        </div>
     </div>
 
-    <div class="policy-item">
-        <a href="/dpa">Data Processing Addendum (DPA)</a><br>
-        GDPR-aligned data processing commitments for organizations.
+    <div class="policy-card">
+        <div class="policy-card-title">
+            <a href="/dpa">Data Processing Addendum (DPA)</a>
+        </div>
+        <div class="policy-card-desc">
+            GDPR-compliant data processing terms for organizations and communities.
+        </div>
     </div>
 
-    <div class="policy-item">
-        <a href="/security">Security & Compliance Statement</a><br>
-        Details on platform security, infrastructure protections, and incident response.
+    <div class="policy-card">
+        <div class="policy-card-title">
+            <a href="/security">Security Statement</a>
+        </div>
+        <div class="policy-card-desc">
+            Detailed overview of platform security, systems, and infrastructure.
+        </div>
     </div>
 
-    <div class="policy-item">
-        <a href="/disclaimer">Legal Disclaimer</a><br>
-        Disclaimers regarding warranties, liabilities, and limitation of damages.
+    <div class="policy-card">
+        <div class="policy-card-title">
+            <a href="/disclaimer">Legal Disclaimer</a>
+        </div>
+        <div class="policy-card-desc">
+            Warranties, limitations, and legal protections for OpsLinkCAD.
+        </div>
     </div>
 
-    <div class="policy-item">
-        <a href="/cookies">Cookie Policy</a><br>
-        Information on how cookies and tracking technologies are used.
+    <div class="policy-card">
+        <div class="policy-card-title">
+            <a href="/cookies">Cookie Policy</a>
+        </div>
+        <div class="policy-card-desc">
+            How cookies, analytics, and tracking technologies are used.
+        </div>
     </div>
 
 </div>
@@ -122,14 +220,19 @@ Please review each policy carefully.
 <hr>
 
 <h2>Contact & Support</h2>
-
 <p>
-For all legal inquiries, support, reporting, or assistance:<br>
-Join the official OpsLinkCAD Discord server:<br><br>
-<a href="https://discord.gg/S9QhEYAGzH" target="_blank"><strong>Join here</strong></a><br><br>
-This is the exclusive method for contacting OpsLink Systems.
+All support, reports, complaints, inquiries, and legal questions must be submitted through the official OpsLinkCAD Discord:
+</p>
+
+<p style="margin-top:10px;">
+    <a href="https://discord.gg/S9QhEYAGzH" target="_blank"><strong>Join here</strong></a>
 </p>
 
 </div>
+
+<div class="footer">
+    © 2025 OpsLink Systems — All Rights Reserved.
+</div>
+
 </body>
 </html>
