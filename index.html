@@ -1,239 +1,917 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<title>OpsLinkCAD Legal Center</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <title>OpsLink Systems – Legal Center</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Legal, privacy, and policy information for OpsLink Systems, including Terms of Service, Privacy Policy, Acceptable Use Policy, Refund Policy, and Safeguard data handling." />
 
-<style>
-/* Global Theme */
-body {
-    margin: 0;
-    padding: 0;
-    background: #06090f;
-    color: #d8e0ea;
-    font-family: "Segoe UI", sans-serif;
-    line-height: 1.7;
-}
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-elevated: rgba(15,23,42,0.98);
+      --card: rgba(15,23,42,0.96);
+      --border: rgba(148,163,184,0.3);
+      --accent: #4e8cff;
+      --accent-soft: rgba(78,140,255,0.18);
+      --accent-strong: #1f4fd1;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --danger: #f97373;
+      --radius-lg: 18px;
+      --shadow-soft: 0 18px 40px rgba(15,23,42,0.7);
+      --nav-height: 70px;
+    }
 
-/* Header */
-.header {
-    background: #0a0f18;
-    padding: 20px 40px;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-.header-title {
-    font-size: 26px;
-    font-weight: 700;
-    color: #4e8cff;
-}
+    html, body {
+      height: 100%;
+      scroll-behavior: smooth;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(78,140,255,0.13), transparent 55%),
+        radial-gradient(circle at bottom, rgba(56,189,248,0.08), transparent 60%),
+        var(--bg);
+      color: var(--text);
+    }
 
-.header-nav a {
-    color: #d8e0ea;
-    text-decoration: none;
-    margin-left: 25px;
-    font-weight: 600;
-    transition: 0.2s;
-}
+    body {
+      padding-top: var(--nav-height);
+    }
 
-.header-nav a:hover {
-    color: #4e8cff;
-}
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
 
-/* Container */
-.container {
-    max-width: 1000px;
-    margin: 50px auto;
-    padding: 0 40px;
-}
+    a:hover {
+      text-decoration: underline;
+    }
 
-h1 {
-    color: #4e8cff;
-    font-size: 38px;
-    margin-bottom: 10px;
-}
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 7vw;
+      background: linear-gradient(to bottom, rgba(15,23,42,0.97), rgba(15,23,42,0.9));
+      border-bottom: 1px solid rgba(148,163,184,0.35);
+      backdrop-filter: blur(18px);
+      z-index: 50;
+    }
 
-.subtitle {
-    opacity: 0.85;
-    font-size: 17px;
-    margin-bottom: 40px;
-}
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-/* Policy Grid */
-.policy-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-    gap: 25px;
-}
+    .logo-dot {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      background: radial-gradient(circle at 30% 20%, #4e8cff, #020617);
+      box-shadow: 0 0 18px rgba(78,140,255,0.6);
+    }
 
-.policy-card {
-    background: #0b111a;
-    border: 1px solid #1b2532;
-    padding: 25px;
-    border-radius: 12px;
-    transition: 0.2s;
-}
+    .nav-title {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
 
-.policy-card:hover {
-    border-color: #4e8cff;
-}
+    .nav-title-main {
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
 
-.policy-card-title {
-    font-size: 20px;
-    color: #4e8cff;
-    margin-bottom: 8px;
-}
+    .nav-title-sub {
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
 
-.policy-card a {
-    text-decoration: none;
-    color: #4e8cff;
-}
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      font-size: 0.85rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
 
-.policy-card-desc {
-    font-size: 15px;
-    opacity: 0.85;
-}
+    .pill-link {
+      padding: 7px 13px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
 
-hr {
-    border: 0;
-    border-bottom: 1px solid rgba(255,255,255,0.12);
-    margin: 40px 0;
-}
+    .pill-link:hover {
+      border-color: rgba(148,163,184,0.7);
+      color: var(--text);
+      background: rgba(15,23,42,0.95);
+      text-decoration: none;
+    }
 
-/* Footer */
-.footer {
-    text-align: center;
-    margin-top: 40px;
-    padding-bottom: 30px;
-    opacity: 0.8;
-    font-size: 15px;
-}
-</style>
+    .pill-link.primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: #f9fafb;
+      border-color: transparent;
+      box-shadow: 0 0 22px rgba(78,140,255,0.7);
+    }
+
+    .pill-link.primary:hover {
+      filter: brightness(1.04);
+    }
+
+    /* PAGE LAYOUT */
+    .page {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 28px 7vw 80px;
+      display: grid;
+      grid-template-columns: minmax(0, 2.25fr) minmax(260px, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .page {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    header.hero {
+      margin-bottom: 26px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .hero-eyebrow span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 14px rgba(78,140,255,0.8);
+    }
+
+    .hero-title {
+      font-size: clamp(2.15rem, 4vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 700px;
+      line-height: 1.7;
+    }
+
+    .hero-subtitle strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .badge-row {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .badge {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.5);
+      color: var(--muted);
+      background: rgba(15,23,42,0.85);
+    }
+
+    .badge.accent {
+      border-color: rgba(78,140,255,0.7);
+      background: var(--accent-soft);
+      color: #e5e7eb;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      position: relative;
+    }
+
+    .sidebar-inner {
+      position: sticky;
+      top: calc(var(--nav-height) + 20px);
+      background: var(--bg-elevated);
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      padding: 16px 16px 18px;
+    }
+
+    @media (max-width: 900px) {
+      .sidebar-inner {
+        position: static;
+      }
+    }
+
+    .sidebar-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .sidebar-section {
+      margin-bottom: 14px;
+    }
+
+    .side-link {
+      display: block;
+      padding: 6px 8px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .side-link:hover {
+      border-color: rgba(148,163,184,0.5);
+      background: rgba(15,23,42,0.96);
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .side-link strong {
+      font-weight: 600;
+    }
+
+    .sidebar-footer {
+      border-top: 1px solid rgba(148,163,184,0.25);
+      padding-top: 10px;
+      margin-top: 10px;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .sidebar-footer code {
+      font-size: 0.75rem;
+      background: rgba(15,23,42,0.9);
+      padding: 3px 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+    }
+
+    /* MAIN CONTENT */
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    /* SECTION CARDS */
+    section.card {
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      padding: 18px 18px 20px;
+    }
+
+    section.card h2 {
+      font-size: 1.15rem;
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+
+    section.card h3 {
+      font-size: 0.95rem;
+      margin-top: 11px;
+      margin-bottom: 4px;
+    }
+
+    section.card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 6px;
+    }
+
+    section.card ul {
+      font-size: 0.86rem;
+      color: var(--muted);
+      padding-left: 18px;
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+
+    section.card li + li {
+      margin-top: 2px;
+    }
+
+    .section-tagline {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .callout {
+      margin-top: 10px;
+      padding: 10px 11px;
+      border-radius: 12px;
+      border: 1px dashed rgba(148,163,184,0.55);
+      background: rgba(15,23,42,0.9);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .callout.danger {
+      border-color: rgba(248,113,113,0.7);
+      background: rgba(127,29,29,0.4);
+      color: #fecaca;
+    }
+
+    .callout strong {
+      color: #e5e7eb;
+    }
+
+    .pill-inline {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      padding: 2px 8px;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-left: 4px;
+      background: rgba(15,23,42,0.9);
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .clause-tag {
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .divider {
+      margin-top: 8px;
+      margin-bottom: 8px;
+      height: 1px;
+      background: linear-gradient(to right, rgba(148,163,184,0.2), rgba(15,23,42,0.1));
+    }
+
+    .muted-small {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .list-inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+      margin-bottom: 4px;
+    }
+
+    .list-inline span {
+      font-size: 0.78rem;
+      border-radius: 999px;
+      padding: 3px 8px;
+      border: 1px solid rgba(148,163,184,0.4);
+      background: rgba(15,23,42,0.92);
+    }
+  </style>
 </head>
-
 <body>
-
-<!-- HEADER -->
-<div class="header">
-    <div class="header-title">OpsLinkCAD Legal Center</div>
-    <div class="header-nav">
-        <a href="/terms.html">Terms</a>
-        <a href="/privacy.html">Privacy</a>
-        <a href="/billing.html">Billing</a>
-        <a href="/aup.html">AUP</a>
-        <a href="/security.html">Security</a>
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-left">
+      <div class="logo-dot"></div>
+      <div class="nav-title">
+        <span class="nav-title-main">OpsLink Systems</span>
+        <span class="nav-title-sub">Legal & Compliance</span>
+      </div>
     </div>
-</div>
+    <div class="nav-links">
+      <a href="#terms" class="pill-link">Terms</a>
+      <a href="#privacy" class="pill-link">Privacy</a>
+      <a href="#aup" class="pill-link">Acceptable Use</a>
+      <a href="#safeguard" class="pill-link">Safeguard</a>
+      <a href="#refunds" class="pill-link">Refunds</a>
+      <a href="#dmca" class="pill-link">DMCA</a>
+      <a href="#contact" class="pill-link primary">Contact</a>
+    </div>
+  </nav>
 
-<!-- MAIN CONTENT -->
-<div class="container">
-
-<h1>OpsLinkCAD Legal Center</h1>
-
-<p class="subtitle">
-Welcome to the legal hub for <strong>OpsLinkCAD</strong>, a product under
-<strong>OpsLink Systems</strong>.  
-This center provides access to all legally binding documents and compliance guidelines.
-</p>
-
-<!-- POLICY GRID -->
-<div class="policy-grid">
-
-    <div class="policy-card">
-        <div class="policy-card-title">
-            <a href="/terms.html">Terms of Service</a>
+  <main class="page">
+    <!-- MAIN CONTENT -->
+    <div>
+      <header class="hero">
+        <div class="hero-eyebrow">
+          <span class="dot"></span>
+          <span>OpsLink Systems &mdash; Legal Center</span>
         </div>
-        <div class="policy-card-desc">
-            The agreement governing access and use of OpsLinkCAD.
+        <h1 class="hero-title">Legal, Privacy & Policy Hub</h1>
+        <p class="hero-subtitle">
+          This page explains how <strong>OpsLink Systems</strong> operates from a legal and compliance perspective
+          across our products, including <strong>OpsLink Hosting</strong>, <strong>OpsLink Domains</strong>,
+          <strong>OpsLink CAD / MDT</strong>, and <strong>OpsLink Safeguard</strong> (bot + dashboard).
+          By using any OpsLink service, you agree to these terms and policies.
+        </p>
+        <div class="badge-row">
+          <span class="badge accent">Single source of truth</span>
+          <span class="badge">Last updated: <span id="last-updated-text">2025</span></span>
         </div>
+      </header>
+
+      <div class="content">
+        <!-- TERMS OF SERVICE -->
+        <section class="card" id="terms">
+          <div class="section-tagline">Core Agreement</div>
+          <h2>Terms of Service</h2>
+          <p>
+            These Terms of Service ("Terms") govern your access to and use of OpsLink Systems products and services,
+            including OpsLink Hosting, OpsLink Domains, OpsLink CAD / MDT, OpsLink Safeguard, and any related
+            websites, APIs, or dashboards (collectively, the "Services"). "OpsLink", "we", "us", and "our"
+            refer to OpsLink Systems. "You" means the individual or legal entity using the Services.
+          </p>
+
+          <h3>1. Acceptance of Terms</h3>
+          <p>
+            By accessing or using any OpsLink Service, you confirm that you have read, understood, and agree to be
+            bound by these Terms and our other applicable policies (Privacy Policy, Acceptable Use Policy, Refund Policy,
+            and any product-specific terms). If you do not agree, you must not use the Services.
+          </p>
+
+          <h3>2. Eligibility & Accounts</h3>
+          <ul>
+            <li>You must be at least 13 years old, or the minimum age of digital consent in your region, to use the Services.</li>
+            <li>If you create an OpsLink account, you are responsible for safeguarding your login credentials and for all activity under your account.</li>
+            <li>If you use OpsLink via a third-party platform (e.g., Discord, FiveM, game server), you must also comply with that platform’s terms.</li>
+          </ul>
+
+          <h3>3. Services Overview</h3>
+          <ul>
+            <li><strong>OpsLink Hosting</strong> – hosting infrastructure for game servers, bots, and related workloads.</li>
+            <li><strong>OpsLink Domains</strong> – domain search interface and related management tools (some registry actions may be handled via third-party providers).</li>
+            <li><strong>OpsLink CAD / MDT</strong> – roleplay computer-aided dispatch and in-game tooling, including units, calls, and status management.</li>
+            <li><strong>OpsLink Safeguard</strong> – a bot + dashboard moderation and security solution, storing configuration data in OpsLink-managed databases while sending logs to channels you configure in your own guild/server.</li>
+          </ul>
+
+          <h3>4. Service Changes & Availability</h3>
+          <p>
+            OpsLink may add, modify, or remove features, impose limits, or suspend Services (for maintenance, security,
+            legal, or technical reasons). We aim for high availability but do not guarantee uninterrupted operation.
+          </p>
+
+          <h3>5. Your Responsibilities</h3>
+          <ul>
+            <li>You are responsible for how you configure and use OpsLink Services, including Safeguard rules, log channels, and integrations.</li>
+            <li>You must ensure your use complies with our <a href="#aup">Acceptable Use Policy</a> and with all applicable laws.</li>
+            <li>If you administer a community, server, or guild, you are responsible for informing your members about your use of OpsLink Services where required.</li>
+          </ul>
+
+          <h3>6. Third-Party Services</h3>
+          <p>
+            OpsLink may integrate with or rely on third-party services (such as game platforms, voice platforms, payment
+            providers, or domain registries). Those services are governed by their own terms and privacy policies, and
+            OpsLink is not responsible for their acts or omissions.
+          </p>
+
+          <h3>7. Intellectual Property</h3>
+          <ul>
+            <li>OpsLink retains all rights, title, and interest in and to the Services, including all software, designs, and documentation.</li>
+            <li>You retain any rights you have in content you upload, host, or transmit, subject to licenses necessary for OpsLink to operate the Services.</li>
+            <li>You must not copy, resell, or reverse engineer OpsLink software or dashboards except where permitted by law.</li>
+          </ul>
+
+          <h3>8. Termination</h3>
+          <p>
+            You may stop using the Services at any time. OpsLink may suspend or terminate your access if you:
+          </p>
+          <ul>
+            <li>Materially breach these Terms or the AUP;</li>
+            <li>Use the Services in a way that risks security, abuse, or legal issues;</li>
+            <li>Fail to pay fees for any paid Services (where applicable).</li>
+          </ul>
+          <p>
+            Upon termination, your access to OpsLink dashboards and hosting may be disabled, and data may be deleted in
+            accordance with our retention practices.
+          </p>
+
+          <h3>9. Disclaimers</h3>
+          <p>
+            The Services are provided on an "AS IS" and "AS AVAILABLE" basis. To the maximum extent permitted by law,
+            OpsLink disclaims all warranties, whether express or implied, including fitness for a particular purpose,
+            merchantability, and non-infringement. OpsLink does not guarantee that the Services will be error-free,
+            uninterrupted, or completely secure.
+          </p>
+
+          <h3>10. Limitation of Liability</h3>
+          <p>
+            To the maximum extent permitted by law, OpsLink and its operators, contributors, and affiliates shall not be
+            liable for any indirect, incidental, special, consequential, or punitive damages, or loss of profits, data,
+            or goodwill arising out of or related to your use of the Services.
+          </p>
+
+          <h3>11. Changes to these Terms</h3>
+          <p>
+            OpsLink may update these Terms from time to time. When we do, we will adjust the "Last updated" date and,
+            where reasonable, provide additional notice. Your continued use of the Services after changes become
+            effective constitutes acceptance of the updated Terms.
+          </p>
+        </section>
+
+        <!-- PRIVACY POLICY -->
+        <section class="card" id="privacy">
+          <div class="section-tagline">Data Handling</div>
+          <h2>Privacy Policy</h2>
+          <p>
+            This Privacy Policy explains how OpsLink Systems ("OpsLink", "we", "us") collects, uses, and protects
+            information when you use our Services, including OpsLink Hosting, OpsLink Domains, OpsLink CAD / MDT,
+            and OpsLink Safeguard.
+          </p>
+
+          <h3>1. Information We Collect</h3>
+          <p>Depending on which Services you use, we may collect:</p>
+          <ul>
+            <li><strong>Account and contact information</strong> – such as usernames, email addresses, and authentication identifiers.</li>
+            <li><strong>Server and configuration data</strong> – such as server IDs, guild IDs, selected features, Safeguard configuration settings, and linked channels.</li>
+            <li><strong>Operational metadata</strong> – such as timestamps, error logs, performance metrics, and anonymized usage patterns.</li>
+            <li><strong>Billing / subscription data</strong> (if applicable) – handled either by OpsLink or trusted payment providers.</li>
+          </ul>
+
+          <div class="callout">
+            <strong>Safeguard-specific note:</strong> OpsLink Safeguard stores <em>configuration data</em> in an OpsLink-managed database
+            (such as: which features are enabled, thresholds, IDs of log channels you configure, and permission settings).
+            Safeguard sends moderation logs to the channels you select <strong>inside your own guild or server</strong>.
+            OpsLink does <strong>not</strong> centrally store full message content or conversation histories for Safeguard logs.
+          </div>
+
+          <h3>2. How We Use Information</h3>
+          <p>We use the information we collect to:</p>
+          <ul>
+            <li>Provide, maintain, and improve the Services.</li>
+            <li>Operate Safeguard’s configuration system and bot/dashboard behaviour.</li>
+            <li>Detect, prevent, and address abuse, fraud, or security incidents.</li>
+            <li>Respond to support requests and technical issues.</li>
+            <li>Comply with legal obligations when required.</li>
+          </ul>
+
+          <h3>3. Data Access & Authorized Personnel</h3>
+          <p>
+            Access to any sensitive user data (including configuration data stored in OpsLink databases) is
+            <strong>strictly limited</strong> to authorized individuals or administrators who have a legitimate need to access it,
+            such as for:
+          </p>
+          <ul>
+            <li>Debugging and resolving technical issues;</li>
+            <li>Investigating abuse, security incidents, or Terms/AUP violations;</li>
+            <li>Fulfilling legal or regulatory obligations.</li>
+          </ul>
+          <p>
+            OpsLink uses a <strong>least-privilege principle</strong>: only a limited set of authorized personnel are granted access
+            to sensitive data, and such access is controlled and, where technically feasible, logged and auditable.
+            Unauthorized access to sensitive data is strictly prohibited.
+          </p>
+
+          <h3>4. Cookies and Local Storage</h3>
+          <p>
+            Some dashboards and web interfaces may use cookies or local storage to maintain sessions, remember
+            preferences, or improve security (for example, to store an auth token in your browser). You can control
+            cookies using your browser settings, although disabling them may affect functionality.
+          </p>
+
+          <h3>5. Data Sharing</h3>
+          <p>We may share limited data with:</p>
+          <ul>
+            <li><strong>Service providers</strong> – such as hosting, infrastructure, logging, or payment providers, under appropriate confidentiality obligations.</li>
+            <li><strong>Legal authorities</strong> – when required by law, court order, or to protect OpsLink or others from harm.</li>
+            <li><strong>Third-party platforms</strong> – only to the extent required to integrate (e.g., game or voice servers), in line with their APIs and your configuration.</li>
+          </ul>
+          <p>We do not sell your personal data.</p>
+
+          <h3>6. Data Retention</h3>
+          <p>
+            We retain data for as long as necessary to provide the Services, resolve disputes, enforce our agreements,
+            and comply with legal obligations. Configuration data (including Safeguard settings) may be retained for a
+            reasonable time after a bot or integration is removed, but may be deleted or anonymized periodically.
+          </p>
+
+          <h3>7. Security</h3>
+          <p>
+            OpsLink employs reasonable technical and organizational measures to protect information, such as access
+            controls, encryption where appropriate, and monitoring for abnormal activity. However, no system is completely
+            secure, and we cannot guarantee absolute security.
+          </p>
+
+          <h3>8. Your Rights</h3>
+          <p>
+            Depending on your location, you may have rights to access, correct, or request deletion of certain personal
+            data. You can contact us at <a href="mailto:legal@opslinksystems.xyz">legal@opslinksystems.xyz</a> for privacy-related requests.
+            We may need to verify your identity before fulfilling certain requests.
+          </p>
+
+          <h3>9. Changes to this Policy</h3>
+          <p>
+            We may update this Privacy Policy from time to time. We will update the "Last updated" date and, where appropriate,
+            provide additional notice. Continued use of the Services after changes become effective constitutes acceptance
+            of the updated Policy.
+          </p>
+        </section>
+
+        <!-- ACCEPTABLE USE -->
+        <section class="card" id="aup">
+          <div class="section-tagline">Usage Rules</div>
+          <h2>Acceptable Use Policy (AUP)</h2>
+          <p>
+            This Acceptable Use Policy ("AUP") describes what is and is not allowed when you use OpsLink Services.
+            The AUP applies to OpsLink Hosting, OpsLink Domains, OpsLink CAD / MDT, OpsLink Safeguard,
+            and any associated dashboards or APIs.
+          </p>
+
+          <h3>1. Prohibited Content</h3>
+          <p>You may not use OpsLink Services to host, transmit, or facilitate:</p>
+          <ul>
+            <li>Illegal content, including content that violates applicable law.</li>
+            <li>Harassment, threats, or targeted abuse of individuals or groups.</li>
+            <li>Content that promotes self-harm, extremism, or serious violence.</li>
+            <li>Malware, unauthorized exploits, or tools primarily intended for hacking.</li>
+            <li>Non-consensual or exploitative content of any kind.</li>
+          </ul>
+
+          <h3>2. Prohibited Behavior</h3>
+          <ul>
+            <li>Abusing OpsLink infrastructure (e.g., DDoS, flooding, resource overuse beyond your plan).</li>
+            <li>Attempting to bypass authentication, security systems, or rate limits.</li>
+            <li>Using OpsLink to spam, phish, or mislead other users.</li>
+            <li>Misrepresenting yourself as OpsLink, or falsely implying official OpsLink endorsement.</li>
+          </ul>
+
+          <h3>3. Safeguard Usage</h3>
+          <p>
+            When using OpsLink Safeguard, you must configure it in a way that is fair and lawful to your community.
+            You are responsible for:
+          </p>
+          <ul>
+            <li>Choosing appropriate log channels and notifying your community where required.</li>
+            <li>Ensuring that rules and moderation actions comply with applicable platform rules and law.</li>
+            <li>Not using Safeguard to secretly monitor individuals in violation of privacy or platform policies.</li>
+          </ul>
+
+          <h3>4. Enforcement</h3>
+          <p>
+            OpsLink may review logs, configuration, or metadata (not full message content) where necessary to investigate
+            suspected violations of these rules. If we believe you are breaking this AUP, we may:
+          </p>
+          <ul>
+            <li>Warn you and request changes to your usage.</li>
+            <li>Suspend or limit aspects of your Services.</li>
+            <li>Terminate Services in serious or repeated cases.</li>
+          </ul>
+
+          <div class="callout danger">
+            <strong>Important:</strong> Repeated or severe abuse (for example, hosting illegal content, running attacks, or operating
+            malicious bots) may lead to immediate termination and, if required, reporting to relevant platforms or authorities.
+          </div>
+        </section>
+
+        <!-- SAFEGUARD SECTION -->
+        <section class="card" id="safeguard">
+          <div class="section-tagline">Safeguard Product-Specific</div>
+          <h2>OpsLink Safeguard & Data Handling</h2>
+          <p>
+            OpsLink Safeguard is a <strong>bot + web dashboard</strong> providing moderation, verification, and automated protection
+            features for communities. This section explains how Safeguard operates and how data is handled.
+          </p>
+
+          <h3>1. What Safeguard Stores</h3>
+          <p>Safeguard stores configuration and metadata in OpsLink-managed databases, including:</p>
+          <ul>
+            <li>Server/guild IDs, and identifiers needed to operate the bot and dashboard.</li>
+            <li>Enabled/disabled modules, thresholds, and rule sets.</li>
+            <li>IDs of channels you choose for audit or moderation logs in your own guild/server.</li>
+            <li>Role or permission configuration necessary for Safeguard to function.</li>
+          </ul>
+          <p>
+            This data is stored in a database such as MongoDB and is used solely to operate and improve Safeguard and
+            related OpsLink Services.
+          </p>
+
+          <h3>2. What Safeguard Does Not Store</h3>
+          <p>By default, Safeguard does <strong>not</strong> centrally store:</p>
+          <ul>
+            <li>Full message content or chat histories from your community.</li>
+            <li>Voice data or audio streams.</li>
+            <li>Media attachments hosted in your channels.</li>
+          </ul>
+          <p>
+            Instead, Safeguard <strong>sends logs to channels you configure</strong> within your own guild/server. You control those
+            channels and their history via the platform’s own settings.
+          </p>
+
+          <h3>3. Access to Safeguard Data</h3>
+          <p>
+            As with other OpsLink Services, only <strong>authorized individuals or administrators</strong> with a legitimate operational need
+            may access Safeguard-related database entries (for example, configuration data). This may be necessary to:
+          </p>
+          <ul>
+            <li>Debug issues with Safeguard configuration or behavior.</li>
+            <li>Investigate abuse, fraud, or serious security incidents.</li>
+            <li>Comply with applicable law or valid legal requests.</li>
+          </ul>
+          <p>
+            Such access is controlled using least-privilege principles, and unauthorized access to Safeguard data is
+            strictly prohibited.
+          </p>
+
+          <h3>4. Your Controls</h3>
+          <ul>
+            <li>You may update Safeguard settings and log channels via the dashboard or commands.</li>
+            <li>You may remove Safeguard from your guild/server at any time.</li>
+            <li>We may retain configuration data for a reasonable period after removal for abuse prevention, diagnostics, or legal compliance, after which it may be anonymized or deleted.</li>
+          </ul>
+        </section>
+
+        <!-- REFUND POLICY -->
+        <section class="card" id="refunds">
+          <div class="section-tagline">Billing & Payments</div>
+          <h2>Refund Policy</h2>
+          <p>
+            This Refund Policy applies to any paid OpsLink Services, such as OpsLink Hosting plans, premium features,
+            or other subscription-based offerings (if and when made available).
+          </p>
+
+          <h3>1. General Principle</h3>
+          <p>
+            Because OpsLink Services are typically <strong>digital and provisioned instantly</strong>, all sales are generally considered
+            final once a service has been activated, except where local law requires otherwise or where OpsLink chooses
+            to offer a refund at its discretion.
+          </p>
+
+          <h3>2. When Refunds May Be Considered</h3>
+          <ul>
+            <li>If a payment was clearly processed in error (for example, duplicate billing).</li>
+            <li>If the service failed to provision entirely and we are unable to resolve the issue within a reasonable time.</li>
+            <li>Where required by applicable consumer protection law.</li>
+          </ul>
+
+          <h3>3. Non-Refundable Situations</h3>
+          <ul>
+            <li>Change of mind after successful provisioning of hosting or digital services.</li>
+            <li>Account suspensions or terminations due to AUP/Terms violations.</li>
+            <li>Partial usage of a billing period (for example, cancelling mid-month).</li>
+          </ul>
+
+          <h3>4. How to Request a Refund</h3>
+          <p>
+            To request a refund, contact us at
+            <a href="mailto:legal@opslinksystems.xyz">legal@opslinksystems.xyz</a> or through any designated billing/support channel.
+            Please include relevant transaction IDs, dates, and a clear explanation. We may request additional information
+            to investigate and determine eligibility.
+          </p>
+        </section>
+
+        <!-- DMCA / COPYRIGHT -->
+        <section class="card" id="dmca">
+          <div class="section-tagline">Copyright & Takedowns</div>
+          <h2>DMCA & Copyright Policy</h2>
+          <p>
+            If you believe that content hosted via OpsLink Services infringes your copyright, you may submit a notice so that
+            we can review it and, where appropriate, remove or restrict access to the content in question.
+          </p>
+
+          <h3>1. Submitting a Notice</h3>
+          <p>Your notice should include, at a minimum:</p>
+          <ul>
+            <li>Your name, contact information, and (if you represent someone) the name of the rights holder.</li>
+            <li>A description of the copyrighted work you believe has been infringed.</li>
+            <li>A description of where the allegedly infringing content is located (URLs, server name, etc.).</li>
+            <li>A statement that you have a good-faith belief that the use is not authorized by the rights owner, its agent, or the law.</li>
+            <li>A statement that the information in your notice is accurate, and that you are authorized to act on behalf of the rights holder.</li>
+          </ul>
+
+          <p>
+            You can send copyright-related notices to
+            <a href="mailto:legal@opslinksystems.xyz">legal@opslinksystems.xyz</a>.
+          </p>
+
+          <h3>2. Counter-Notifications</h3>
+          <p>
+            If your content has been removed or restricted and you believe this was done in error, you may send a
+            counter-notification with enough detail to explain why the content is not infringing or is authorized.
+          </p>
+
+          <h3>3. Repeat Infringers</h3>
+          <p>
+            OpsLink may, where appropriate, suspend or terminate Services for users or projects that repeatedly infringe
+            on others’ rights.
+          </p>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="card" id="contact">
+          <div class="section-tagline">Contact & Notices</div>
+          <h2>Contacting OpsLink Systems</h2>
+          <p>
+            For legal, privacy, or policy-related questions, or to submit notices under these policies, you can
+            contact OpsLink Systems at:
+          </p>
+          <ul>
+            <li>Email: <a href="mailto:legal@opslinksystems.xyz">legal@opslinksystems.xyz</a></li>
+          </ul>
+          <p class="muted-small">
+            When you contact us, please avoid including more personal data than necessary. We may use the information
+            you provide to respond, investigate issues, or comply with legal requirements.
+          </p>
+        </section>
+      </div>
     </div>
 
-    <div class="policy-card">
-        <div class="policy-card-title">
-            <a href="/billing.html">Billing & Subscription Policy</a>
+    <!-- SIDEBAR QUICK NAV -->
+    <aside class="sidebar">
+      <div class="sidebar-inner">
+        <div class="sidebar-section">
+          <div class="sidebar-title">Quick Navigation</div>
+          <a href="#terms" class="side-link"><strong>Terms of Service</strong></a>
+          <a href="#privacy" class="side-link">Privacy & Data Handling</a>
+          <a href="#aup" class="side-link">Acceptable Use Policy</a>
+          <a href="#safeguard" class="side-link">Safeguard – Bot + Dashboard</a>
+          <a href="#refunds" class="side-link">Refunds & Billing</a>
+          <a href="#dmca" class="side-link">DMCA / Copyright</a>
+          <a href="#contact" class="side-link">Legal Contact</a>
         </div>
-        <div class="policy-card-desc">
-            Details about payments, renewals, taxes, and cancellations.
+        <div class="sidebar-section">
+          <div class="sidebar-title">Covered OpsLink Divisions</div>
+          <div class="list-inline">
+            <span>OpsLink Systems</span>
+            <span>OpsLink Hosting</span>
+            <span>OpsLink Domains</span>
+            <span>OpsLink CAD / MDT</span>
+            <span>OpsLink Safeguard</span>
+          </div>
         </div>
-    </div>
+        <div class="sidebar-footer">
+          <div>Legal contact:</div>
+          <div><code>legal@opslinksystems.xyz</code></div>
+          <div style="margin-top:6px;">
+            Only <strong>authorized administrators</strong> may access sensitive data and only for security, abuse
+            investigation, or legal compliance purposes.
+          </div>
+        </div>
+      </div>
+    </aside>
+  </main>
 
-    <div class="policy-card">
-        <div class="policy-card-title">
-            <a href="/privacy.html">Privacy Policy</a>
-        </div>
-        <div class="policy-card-desc">
-            How OpsLinkCAD collects, handles, and protects your data.
-        </div>
-    </div>
-
-    <div class="policy-card">
-        <div class="policy-card-title">
-            <a href="/aup.html">Acceptable Use Policy</a>
-        </div>
-        <div class="policy-card-desc">
-            Rules governing user behaviour, restrictions, and compliance.
-        </div>
-    </div>
-
-    <div class="policy-card">
-        <div class="policy-card-title">
-            <a href="/dpa.html">Data Processing Addendum</a>
-        </div>
-        <div class="policy-card-desc">
-            GDPR-compliant processing terms for organizations.
-        </div>
-    </div>
-
-    <div class="policy-card">
-        <div class="policy-card-title">
-            <a href="/security.html">Security Statement</a>
-        </div>
-        <div class="policy-card-desc">
-            Information about platform security and infrastructure protection.
-        </div>
-    </div>
-
-    <div class="policy-card">
-        <div class="policy-card-title">
-            <a href="/disclaimer.html">Legal Disclaimer</a>
-        </div>
-        <div class="policy-card-desc">
-            Warranties, liability limitations, and protections.
-        </div>
-    </div>
-
-    <div class="policy-card">
-        <div class="policy-card-title">
-            <a href="/cookies.html">Cookie Policy</a>
-        </div>
-        <div class="policy-card-desc">
-            How cookies, analytics, and tracking technologies are used.
-        </div>
-    </div>
-
-</div>
-
-<hr>
-
-<h2>Contact & Support</h2>
-<p>
-All legal, support, abuse, or compliance inquiries must be made through the official OpsLinkCAD Discord:
-</p>
-
-<p style="margin-top:10px;">
-    <a href="https://discord.gg/S9QhEYAGzH" target="_blank"><strong>Join here</strong></a>
-</p>
-
-</div>
-
-<div class="footer">
-    © 2025 OpsLink Systems — All Rights Reserved.
-</div>
-
+  <script>
+    // Small helper to auto-fill the year if you want
+    const d = new Date();
+    const el = document.getElementById("last-updated-text");
+    if (el) el.textContent = d.getFullYear();
+  </script>
 </body>
 </html>
-
