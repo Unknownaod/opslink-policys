@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>OpsLink Systems – Billing & Payment Terms</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Billing and payment terms for OpsLink Systems, including subscriptions, renewals, cancellations, chargebacks, and pricing changes." />
+  <meta name="description" content="Billing and payment terms for OpsLink Systems, including subscriptions, renewals, cancellations, chargebacks, pricing changes, and security & encryption for billing data." />
 
   <style>
     :root {
@@ -403,11 +403,12 @@
       </div>
     </div>
     <div class="nav-links">
-      <!-- You can point these wherever you want -->
+      <!-- Point this back to your legal home page -->
       <a href="index.html" class="pill-link">Legal Center</a>
       <a href="#billing-overview" class="pill-link">Overview</a>
       <a href="#subscriptions" class="pill-link">Subscriptions</a>
       <a href="#payments" class="pill-link">Payments</a>
+      <a href="#security" class="pill-link">Security</a>
       <a href="#chargebacks" class="pill-link">Chargebacks</a>
       <a href="#price-changes" class="pill-link">Pricing</a>
       <a href="#contact" class="pill-link primary">Billing Help</a>
@@ -424,8 +425,8 @@
         </div>
         <h1 class="hero-title">Billing, Payments & Subscriptions</h1>
         <p class="hero-subtitle">
-          This page describes how <strong>billing, payments, renewals, cancellations, and disputes</strong> work for
-          OpsLink products, including <strong>OpsLink Hosting</strong> and any paid features of
+          This page describes how <strong>billing, payments, renewals, cancellations, disputes, and billing security</strong>
+          work for OpsLink products, including <strong>OpsLink Hosting</strong> and any paid features of
           <strong>OpsLink Domains</strong>, <strong>OpsLink CAD / MDT</strong>, and <strong>OpsLink Safeguard</strong>.
           It is intended to be read together with our main Terms of Service and Refund Policy.
         </p>
@@ -442,7 +443,8 @@
           <h2>1. General Billing Terms</h2>
           <p>
             By purchasing or activating any paid OpsLink Service, you agree to these Billing & Payment Terms in addition
-            to our <a href="index.html">Terms of Service</a>, Privacy Policy, and Refund Policy.
+            to our <a href="index.html#terms">Terms of Service</a>, <a href="index.html#privacy">Privacy Policy</a>,
+            <a href="index.html#refunds">Refund Policy</a>, and <a href="index.html#aup">Acceptable Use Policy</a>.
           </p>
           <ul>
             <li>All prices, unless otherwise stated, are listed in a currency displayed at checkout.</li>
@@ -450,8 +452,10 @@
             <li>You must provide accurate and current billing information and keep it up to date.</li>
           </ul>
           <div class="callout">
-            <strong>Note:</strong> OpsLink may use one or more third-party payment processors to handle card payments and
-            subscription billing. Their terms and privacy policies also apply to your use of paid features.
+            <strong>Payment processing:</strong> OpsLink uses <strong>Stripe</strong> and its regional affiliates as our
+            primary payment processor. By submitting payment information, you agree to Stripe’s
+            <a href="https://stripe.com/legal" target="_blank" rel="noopener noreferrer">Terms of Service</a> and
+            <a href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
           </div>
         </section>
 
@@ -463,11 +467,12 @@
             Certain OpsLink Services (such as hosting plans or premium feature tiers) may be offered on a
             <strong>recurring subscription basis</strong>, billed monthly, yearly, or at another clearly stated interval.
           </p>
+
           <h3>2.1 Auto-Renewal</h3>
           <ul>
             <li>Unless otherwise stated, subscriptions will automatically renew at the end of each billing period.</li>
             <li>The renewal price will normally be the same as the original price, unless a price change has been announced (see Section 5).</li>
-            <li>By starting a subscription, you authorize OpsLink (or its payment processor) to automatically charge the applicable fees at each renewal.</li>
+            <li>By starting a subscription, you authorize OpsLink (via Stripe) to automatically charge the applicable fees at each renewal to your selected payment method.</li>
           </ul>
 
           <h3>2.2 Cancellation</h3>
@@ -484,27 +489,36 @@
           </ul>
         </section>
 
-        <!-- PAYMENT METHODS -->
+        <!-- PAYMENT METHODS & STRIPE -->
         <section class="card" id="payments">
           <div class="section-tagline">Processing & Methods</div>
-          <h2>3. Payment Methods & Processing</h2>
+          <h2>3. Payment Methods & Stripe Processing</h2>
           <p>
-            OpsLink may accept various payment methods, such as credit/debit cards, online payment services, or other
-            methods as made available by our payment processors.
+            OpsLink relies on <strong>Stripe</strong> to process payments securely. Stripe is a PCI-DSS compliant
+            payment processor that handles the transmission and storage of sensitive card details.
           </p>
-          <h3>3.1 Authorization</h3>
+
+          <h3>3.1 Accepted Payment Methods</h3>
+          <p>
+            The exact payment methods available (e.g., credit/debit cards or other methods) may vary based on your region
+            and Stripe’s supported options at the time of purchase. The options will be shown at checkout.
+          </p>
+
+          <h3>3.2 Card Data Handling & PCI Compliance</h3>
           <ul>
-            <li>By providing a payment method, you represent that you are authorized to use that method.</li>
-            <li>You authorize OpsLink and its payment processors to charge your payment method for all amounts due for the Services you purchase, including recurring charges.</li>
+            <li>OpsLink Systems <strong>does not collect or store full credit or debit card numbers</strong> on our own servers.</li>
+            <li>All payment card information is transmitted directly from your browser or device to Stripe using secure, encrypted connections (HTTPS/TLS).</li>
+            <li>Stripe is responsible for securely storing, encrypting, and processing card data in accordance with PCI-DSS (Payment Card Industry Data Security Standard).</li>
+            <li>OpsLink may receive non-sensitive billing information and limited metadata from Stripe (for example, the last 4 digits of a card, card brand, expiration month/year, and transaction IDs) to identify payments and manage billing.</li>
           </ul>
 
-          <h3>3.2 Failed Payments</h3>
+          <h3>3.3 Failed Payments</h3>
           <ul>
-            <li>If a payment fails (for example, card declined or insufficient funds), we may attempt to retry the payment.</li>
+            <li>If a payment fails (for example, card declined or insufficient funds), Stripe or OpsLink may attempt to retry the payment.</li>
             <li>We may suspend or limit your access to paid Services if payment cannot be collected within a reasonable time.</li>
           </ul>
 
-          <h3>3.3 One-Time Purchases</h3>
+          <h3>3.4 One-Time Purchases</h3>
           <p>
             Some Services or add-ons may be sold as one-time purchases. Unless otherwise stated, these are billed once
             and do not automatically renew. These are generally non-refundable once delivered, except where our Refund
@@ -512,26 +526,60 @@
           </p>
         </section>
 
+        <!-- SECURITY & ENCRYPTION -->
+        <section class="card" id="security">
+          <div class="section-tagline">Security & Encryption</div>
+          <h2>4. Billing Security & Encryption</h2>
+          <p>
+            OpsLink takes the security of billing-related data seriously and uses multiple layers of protection, both
+            through our own infrastructure and through Stripe.
+          </p>
+
+          <h3>4.1 Data in Transit</h3>
+          <ul>
+            <li>All communication between your browser and OpsLink billing dashboards is protected using encrypted HTTPS connections (TLS).</li>
+            <li>When you enter payment details, your information is sent directly to Stripe over a secure, encrypted connection. OpsLink does not see or intercept the full card number.</li>
+          </ul>
+
+          <h3>4.2 Data at Rest (OpsLink Mainframe for Billing)</h3>
+          <ul>
+            <li>Billing-related data stored by OpsLink (such as invoices, subscription status, plan selections, non-sensitive Stripe identifiers, and your billing contact information) is stored in our infrastructure using <strong>industry-standard encryption mechanisms, including AES-256</strong> where applicable.</li>
+            <li>This means that billing records and sensitive operational metadata are encrypted at rest within our main billing systems to reduce the risk of unauthorized access.</li>
+            <li>We do <strong>not</strong> store full payment card numbers, card verification codes (CVC/CVV), or full magnetic stripe data on our systems.</li>
+          </ul>
+
+          <h3>4.3 Access Control to Billing Data</h3>
+          <ul>
+            <li>Access to billing information is strictly limited to authorized individuals or administrators who require it for legitimate business purposes such as billing support, dispute resolution, accounting, or fraud prevention.</li>
+            <li>OpsLink follows a <strong>least-privilege</strong> model, meaning personnel receive only the minimum access needed for their role.</li>
+            <li>Unauthorized access to billing data is strictly prohibited and may result in internal action and, where appropriate, reporting to relevant parties.</li>
+          </ul>
+
+          <div class="callout">
+            <strong>Summary:</strong> Stripe handles and encrypts your card details as our payment processor, while OpsLink encrypts its own billing-related records (for example, subscription metadata) using strong encryption such as AES-256 on our billing mainframe, plus HTTPS/TLS for data in transit.
+          </div>
+        </section>
+
         <!-- CHARGEBACKS / DISPUTES -->
         <section class="card" id="chargebacks">
           <div class="section-tagline">Disputes</div>
-          <h2>4. Chargebacks, Disputes & Fraud</h2>
+          <h2>5. Chargebacks, Disputes & Fraud</h2>
           <p>
             If you believe there is an error or unauthorized charge, we encourage you to first
             <strong>contact OpsLink directly</strong> so we can investigate and attempt to resolve the issue.
           </p>
 
-          <h3>4.1 Chargebacks</h3>
+          <h3>5.1 Chargebacks</h3>
           <ul>
-            <li>Initiating a chargeback without first attempting to resolve the issue with OpsLink may delay resolution.</li>
-            <li>If a chargeback is raised, OpsLink may provide evidence to the payment processor that the charge was authorized and the Services were delivered.</li>
+            <li>Payments processed through Stripe may be subject to chargeback procedures defined by card networks and financial institutions.</li>
+            <li>If a chargeback is raised, OpsLink may submit evidence to Stripe and the relevant financial institution to demonstrate that the charge was authorized and the Services were delivered.</li>
             <li>Accounts or services associated with fraudulent or abusive chargebacks may be suspended or terminated.</li>
           </ul>
 
-          <h3>4.2 Suspected Fraud</h3>
+          <h3>5.2 Suspected Fraud</h3>
           <ul>
             <li>OpsLink reserves the right to refuse or cancel transactions that appear to involve fraud, unauthorized use, or violations of the AUP.</li>
-            <li>Fraudulent activity may be reported to payment processors, platforms, or legal authorities where appropriate.</li>
+            <li>Fraudulent activity may be reported to Stripe, affected platforms, or legal authorities where appropriate.</li>
           </ul>
 
           <div class="callout danger">
@@ -543,20 +591,20 @@
         <!-- PRICING & TAXES -->
         <section class="card" id="price-changes">
           <div class="section-tagline">Pricing & Taxes</div>
-          <h2>5. Pricing, Taxes & Changes</h2>
-          <h3>5.1 Pricing</h3>
+          <h2>6. Pricing, Taxes & Changes</h2>
+          <h3>6.1 Pricing</h3>
           <ul>
             <li>Listed prices may be shown exclusive or inclusive of taxes, depending on your region and applicable law.</li>
             <li>OpsLink may offer different pricing tiers or plans for different levels of service (e.g., CPU/RAM limits, storage, premium features).</li>
           </ul>
 
-          <h3>5.2 Taxes</h3>
+          <h3>6.2 Taxes</h3>
           <p>
             Where required, taxes (such as VAT, sales tax, or similar) may be added to your total at checkout. The amount
             may depend on your billing address or the requirements of the merchant of record.
           </p>
 
-          <h3>5.3 Price Changes</h3>
+          <h3>6.3 Price Changes</h3>
           <ul>
             <li>OpsLink may change prices, billing structures, or available plans from time to time.</li>
             <li>For active subscriptions, we will provide reasonable notice before price changes take effect on future billing periods.</li>
@@ -567,7 +615,7 @@
         <!-- SUSPENSION & TERMINATION FOR NON-PAYMENT -->
         <section class="card">
           <div class="section-tagline">Non-Payment</div>
-          <h2>6. Suspension & Termination</h2>
+          <h2>7. Suspension & Termination</h2>
           <p>
             If invoices remain unpaid or payments repeatedly fail, OpsLink may:
           </p>
@@ -585,7 +633,7 @@
         <!-- RELATION TO LEGAL / PRIVACY -->
         <section class="card">
           <div class="section-tagline">Relationship to Legal Docs</div>
-          <h2>7. Relationship to Other Policies</h2>
+          <h2>8. Relationship to Other Policies</h2>
           <p>
             These Billing & Payment Terms are part of and work together with:
           </p>
@@ -604,7 +652,7 @@
         <!-- CONTACT -->
         <section class="card" id="contact">
           <div class="section-tagline">Billing Support</div>
-          <h2>8. Billing Questions & Contact</h2>
+          <h2>9. Billing Questions & Contact</h2>
           <p>
             For questions about charges, invoices, subscription status, or billing issues, you can contact:
           </p>
@@ -627,7 +675,8 @@
           <div class="sidebar-title">Sections</div>
           <a href="#billing-overview" class="side-link"><strong>Overview</strong></a>
           <a href="#subscriptions" class="side-link">Subscriptions & Renewals</a>
-          <a href="#payments" class="side-link">Payment Methods</a>
+          <a href="#payments" class="side-link">Payment Methods & Stripe</a>
+          <a href="#security" class="side-link">Security & Encryption</a>
           <a href="#chargebacks" class="side-link">Chargebacks & Disputes</a>
           <a href="#price-changes" class="side-link">Pricing & Taxes</a>
           <a href="#contact" class="side-link">Billing Contact</a>
